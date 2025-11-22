@@ -97,11 +97,11 @@
             btnIngresar.Name = "btnIngresar";
             btnIngresar.Size = new Size(164, 43);
             btnIngresar.TabIndex = 5;
-            btnIngresar.Text = "Ingresar";
+            btnIngresar.Text = "Iniciar sesión";
             btnIngresar.UseMnemonic = false;
             btnIngresar.UseVisualStyleBackColor = false;
             // 
-            // Form1
+            // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -113,7 +113,7 @@
             Controls.Add(lblPassword);
             Controls.Add(lblUsuario);
             Controls.Add(lblLogin);
-            Name = "Form1";
+            Name = "Login";
             Text = "Form1";
             ResumeLayout(false);
             PerformLayout();

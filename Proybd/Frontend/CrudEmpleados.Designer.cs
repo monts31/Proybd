@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CrudEmpleados));
-            dataGridView1 = new DataGridView();
+            dgvEmpleados = new DataGridView();
             btnInsertar = new Button();
             btnEliminar = new Button();
             btnModificar = new Button();
@@ -46,16 +46,27 @@
             label5 = new Label();
             textBox7 = new TextBox();
             label7 = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            txtBuscar = new TextBox();
+            lblBuscar = new Label();
+            id_Empleado = new DataGridViewTextBoxColumn();
+            nombre = new DataGridViewTextBoxColumn();
+            telefono = new DataGridViewTextBoxColumn();
+            rol = new DataGridViewTextBoxColumn();
+            horas = new DataGridViewTextBoxColumn();
+            sueldo = new DataGridViewTextBoxColumn();
+            fecha_Contrato = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)dgvEmpleados).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dgvEmpleados
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(490, 47);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(639, 581);
-            dataGridView1.TabIndex = 0;
+            dgvEmpleados.BackgroundColor = Color.FromArgb(192, 255, 255);
+            dgvEmpleados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvEmpleados.Columns.AddRange(new DataGridViewColumn[] { id_Empleado, nombre, telefono, rol, horas, sueldo, fecha_Contrato });
+            dgvEmpleados.Location = new Point(487, 90);
+            dgvEmpleados.Name = "dgvEmpleados";
+            dgvEmpleados.Size = new Size(642, 538);
+            dgvEmpleados.TabIndex = 0;
             // 
             // btnInsertar
             // 
@@ -207,12 +218,72 @@
             label7.TabIndex = 15;
             label7.Text = "Fecha de contrato";
             // 
+            // txtBuscar
+            // 
+            txtBuscar.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtBuscar.Location = new Point(606, 40);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.Size = new Size(500, 35);
+            txtBuscar.TabIndex = 18;
+            txtBuscar.TextChanged += txtBuscar_TextChanged;
+            // 
+            // lblBuscar
+            // 
+            lblBuscar.AutoSize = true;
+            lblBuscar.BackColor = Color.Transparent;
+            lblBuscar.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblBuscar.Location = new Point(501, 47);
+            lblBuscar.Name = "lblBuscar";
+            lblBuscar.Size = new Size(68, 25);
+            lblBuscar.TabIndex = 17;
+            lblBuscar.Text = "Buscar";
+            // 
+            // id_Empleado
+            // 
+            id_Empleado.HeaderText = "id_Empleado";
+            id_Empleado.Name = "id_Empleado";
+            id_Empleado.Width = 80;
+            // 
+            // nombre
+            // 
+            nombre.HeaderText = "nombre";
+            nombre.Name = "nombre";
+            // 
+            // telefono
+            // 
+            telefono.HeaderText = "telefono";
+            telefono.Name = "telefono";
+            // 
+            // rol
+            // 
+            rol.HeaderText = "rol";
+            rol.Name = "rol";
+            // 
+            // horas
+            // 
+            horas.HeaderText = "horas";
+            horas.Name = "horas";
+            horas.Width = 50;
+            // 
+            // sueldo
+            // 
+            sueldo.HeaderText = "sueldo";
+            sueldo.Name = "sueldo";
+            sueldo.Width = 90;
+            // 
+            // fecha_Contrato
+            // 
+            fecha_Contrato.HeaderText = "fecha_Contrato";
+            fecha_Contrato.Name = "fecha_Contrato";
+            // 
             // CrudEmpleados
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(1153, 682);
+            ClientSize = new Size(1163, 683);
+            Controls.Add(txtBuscar);
+            Controls.Add(lblBuscar);
             Controls.Add(textBox7);
             Controls.Add(label7);
             Controls.Add(textBox4);
@@ -229,18 +300,18 @@
             Controls.Add(btnModificar);
             Controls.Add(btnEliminar);
             Controls.Add(btnInsertar);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvEmpleados);
             Name = "CrudEmpleados";
             Text = "Form1";
             Load += CrudEmpleados_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvEmpleados).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dgvEmpleados;
         private Button btnInsertar;
         private Button btnEliminar;
         private Button btnModificar;
@@ -257,5 +328,14 @@
         private Label label5;
         private TextBox textBox7;
         private Label label7;
+        private TextBox txtBuscar;
+        private Label lblBuscar;
+        private DataGridViewTextBoxColumn id_Empleado;
+        private DataGridViewTextBoxColumn nombre;
+        private DataGridViewTextBoxColumn telefono;
+        private DataGridViewTextBoxColumn rol;
+        private DataGridViewTextBoxColumn horas;
+        private DataGridViewTextBoxColumn sueldo;
+        private DataGridViewTextBoxColumn fecha_Contrato;
     }
 }
