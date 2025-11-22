@@ -37,13 +37,13 @@ namespace Proybd.Frontend
             {
                 dgvEmpleados.RowTemplate.Height = 50;
                 dgvEmpleados.Rows.Add(
-                    mEmpleados[i] id_Empleado,
-                    mEmpleados[i] nombre,
-                    mEmpleados[i] telefono,
-                    mEmpleados[i] rol,
-                    mEmpleados[i] horas,
-                    mEmpleados[i] sueldo,
-                    mEmpleados[i] fecha_Contrato
+                    mEmpleados[i].id_Empleado,
+                    mEmpleados[i].nombre,
+                    mEmpleados[i].telefono,
+                    mEmpleados[i].rol,
+                    mEmpleados[i].horas,
+                    mEmpleados[i].sueldo,
+                    mEmpleados[i].fecha_Contrato
                     );
 
             }
