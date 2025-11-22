@@ -37,13 +37,13 @@ namespace Proybd.Frontend
             {
                 dgvEmpleados.RowTemplate.Height = 50;
                 dgvEmpleados.Rows.Add(
-                    mEmpleados[i] id_Empleado,
-                    mEmpleados[i] nombre,
-                    mEmpleados[i] telefono,
-                    mEmpleados[i] rol,
-                    mEmpleados[i] horas,
-                    mEmpleados[i] sueldo,
-                    mEmpleados[i] fecha_Contrato
+                    mEmpleados[i].id_Empleado,
+                    mEmpleados[i].nombre,
+                    mEmpleados[i].telefono,
+                    mEmpleados[i].rol,
+                    mEmpleados[i].horas,
+                    mEmpleados[i].sueldo,
+                    mEmpleados[i].fecha_Contrato
                     );
 
             }
@@ -54,14 +54,61 @@ namespace Proybd.Frontend
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            cargarEmpleados(txtBuscar.Text.Trim());
+        }
+
+        private void btnInsertar_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        private bool datosCorrectos()
         {
-            cargarEmpleados(txtBuscar.Text.Trim());
+            if (txtNombre.Text.Trim().Equals(""))
+            {
+                MessageBox.Show("Ingrese el nombre");
+                return false;
+            }
+            if (txtTelefono.Text.Trim().Equals(""))
+            {
+                MessageBox.Show("Ingrese el Telefono");
+                return false;
+
+            }
+            if (txtRol.Text.Trim().Equals(""))
+            {
+                MessageBox.Show("Ingrese el Rol 1 = Administrador 2 = Empleado");
+                return false;
+
+            }
+            if (txtHoras.Text.Trim().Equals(""))
+            {
+                MessageBox.Show("Ingrese el numero de horas de laburo");
+                return false;
+
+            }
+            if (txtSueldo.Text.Trim().Equals(""))
+            {
+                MessageBox.Show("Ingrese el sueldo del empleado");
+                return false;
+
+            }
+        }
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
