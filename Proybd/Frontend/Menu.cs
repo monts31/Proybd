@@ -21,5 +21,10 @@ namespace Proybd.Frontend
         {
 
         }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

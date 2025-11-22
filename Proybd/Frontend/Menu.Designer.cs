@@ -238,6 +238,7 @@
             Controls.Add(label1);
             Name = "Menu";
             Text = "Form2";
+            Load += Menu_Load;
             ((System.ComponentModel.ISupportInitialize)pic1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pic2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pic4).EndInit();
