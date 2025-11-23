@@ -31,7 +31,7 @@ namespace Proybd.Frontend
         {
             dgvProductos.Rows.Clear();
             dgvProductos.Refresh();
-            
+
             Products = productosConsultas.getProductos();
             foreach (var producto in Products)
             {
@@ -46,9 +46,20 @@ namespace Proybd.Frontend
                 );
             }
         }
-        
+
+        private void btnInsertar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
             
-           
-        
+        }
     }
 }

@@ -43,6 +43,48 @@ namespace Proybd.Backend
             return lista;
         }
 
+        public bool agregarProducto(clsProductos producto)
+        {
+            string INSERT = "insert into Productos(nombre, descripcion, precio, stock, foto) values (@nombre ,@descripcion ,@precio ,@stock ,@foto);";
+            
+            MySqlCommand comando = new MySqlCommand(INSERT, conexionMSQL.GetConnection());
 
+            comando.Parameters.Add(new MySqlParameter("@nombre", producto.nombre));
+            comando.Parameters.Add(new MySqlParameter("@descripcion", producto.descripcion));
+            comando.Parameters.Add(new MySqlParameter("@precio", producto.precio));
+            comando.Parameters.Add(new MySqlParameter("@stock", producto.stock));
+            comando.Parameters.Add(new MySqlParameter("@foto", producto.foto));
+
+            return comando.ExecuteNonQuery() > 0;
+        }
+
+        public bool eliminarPRoducto(int id_Producto)
+        {
+            string DELETE = "delete from Prodctos where id_Producto = @id_Producto;";
+
+            MySqlCommand mcCommand = new MySqlCommand(DELETE, conexionMSQL.GetConnection());
+
+            mcCommand.Parameters.Add(new MySqlParameter("@id_Producto", id_Producto));
+
+            return mcCommand.ExecuteNonQuery() > 0;
+        }
+
+        public bool actualizarProducto(clsProductos producto)
+        {
+            string UPDATE = "update Productos set nombre = @nombre, descripcion = @descripcion, precio = @precio, stock = @stock, foto = @foto where id_Producto = @id_Producto;";
+            
+            MySqlCommand mcCommand = new MySqlCommand(UPDATE, conexionMSQL.GetConnection());
+
+            mcCommand.Parameters.Add(new MySqlParameter("@id_Producto", producto.id_Producto));
+            mcCommand.Parameters.Add(new MySqlParameter("@nombre", producto.nombre));
+            mcCommand.Parameters.Add(new MySqlParameter("@descripcion", producto.descripcion));
+            mcCommand.Parameters.Add(new MySqlParameter("@precio", producto.precio));
+            mcCommand.Parameters.Add(new MySqlParameter("@stock", producto.stock));
+            mcCommand.Parameters.Add(new MySqlParameter("@foto", producto.foto));
+
+            return mcCommand.ExecuteNonQuery() > 0;
+        }
     }
+
 }
+
