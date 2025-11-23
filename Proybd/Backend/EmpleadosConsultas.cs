@@ -23,7 +23,7 @@ namespace Proybd.Backend
             MySqlDataReader mReader = null;
             try
             {
-                if(filtro != "")
+                if (filtro != "")
                 {
                     QUERY += " WHERE " +
                         "id_Empleado LIKE '%" + filtro + "%' OR " +
@@ -40,13 +40,13 @@ namespace Proybd.Backend
                 mReader = mComando.ExecuteReader();
 
                 Empleados mEmpleadoss = null;
-                while(mReader.Read())
+                while (mReader.Read())
                 {
                     mEmpleadoss = new Empleados();
                     mEmpleadoss.id_Empleado = mReader.GetInt16("id_Empleado");
                     mEmpleadoss.nombre = mReader.GetString("nombre");
                     mEmpleadoss.telefono = mReader.GetString("telefono");
-                    mEmpleadoss.rol = mReader.GetByte("rol");
+                    mEmpleadoss.rol = mReader.GetString("rol");
                     mEmpleadoss.horas = mReader.GetInt16("horas");
                     mEmpleadoss.sueldo = mReader.GetFloat("sueldo");
                     mEmpleadoss.fecha_Contrato = mReader.GetDateTime("fecha_Contrato");
@@ -56,13 +56,14 @@ namespace Proybd.Backend
                 mReader.Close();
 
             }
-            catch (Exception) {
+            catch (Exception)
+            {
                 throw;
             }
             return mEmpleados;
         }
 
-        internal bool agregarEmpleados(Empleados mEmpleado)
+        public bool agregarEmpleados(Empleados mEmpleado)
         {
             string INSERT = "INSERT INTO Empleados(id_Empleado , nombre , telefono , rol , horas , sueldo ,  fecha_Contrato) values (@id_Empleado,@nombre ,@telefono ,@rol ,@horas ,@sueldo ,@fecha_Contrato);";
             MySqlCommand mcCommand = new MySqlCommand(INSERT, conexiónMSQL.GetConnection());
@@ -76,6 +77,28 @@ namespace Proybd.Backend
 
             return mcCommand.ExecuteNonQuery() > 0;
 
+        }
+
+        public bool eliminarEmpleado(int id_Empleado)
+        {
+            string DELETE = "DELETE FROM Empleados WHERE id_Empleado = @id_Empleado;";
+            MySqlCommand mcCommand = new MySqlCommand(DELETE, conexiónMSQL.GetConnection());
+            mcCommand.Parameters.Add(new MySqlParameter("@id_Empleado", id_Empleado));
+            return mcCommand.ExecuteNonQuery() > 0;
+        }
+
+        public bool actualizarEmpleado(Empleados mEmpleado)
+        {
+            string UPDATE = "UPDATE Empleados SET nombre = @nombre, telefono = @telefono, rol = @rol, horas = @horas, sueldo = @sueldo, fecha_Contrato = @fecha_Contrato WHERE id_Empleado = @id_Empleado;";
+            MySqlCommand mcCommand = new MySqlCommand(UPDATE, conexiónMSQL.GetConnection());
+            mcCommand.Parameters.Add(new MySqlParameter("@id_Empleado", mEmpleado.id_Empleado));
+            mcCommand.Parameters.Add(new MySqlParameter("@nombre", mEmpleado.nombre));
+            mcCommand.Parameters.Add(new MySqlParameter("@telefono", mEmpleado.telefono));
+            mcCommand.Parameters.Add(new MySqlParameter("@rol", mEmpleado.rol));
+            mcCommand.Parameters.Add(new MySqlParameter("@horas", mEmpleado.horas));
+            mcCommand.Parameters.Add(new MySqlParameter("@sueldo", mEmpleado.sueldo));
+            mcCommand.Parameters.Add(new MySqlParameter("@fecha_Contrato", mEmpleado.fecha_Contrato));
+            return mcCommand.ExecuteNonQuery() > 0;
         }
     }
 }

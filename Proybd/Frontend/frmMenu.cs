@@ -16,6 +16,7 @@ namespace Proybd.Frontend
         public frmMenu()
         {
             InitializeComponent();
+            
         }
 
         public frmMenu(clsConsultaUsuarios usuario)
@@ -31,6 +32,22 @@ namespace Proybd.Frontend
         private void Menu_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnEmpleados_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CrudEmpleados empleados = new CrudEmpleados();
+            empleados.ShowDialog();
+            this.Close();
+        }
+
+        private void btnProducts_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CrudProductos productos = new CrudProductos();
+            productos.ShowDialog();
+            this.Close();
         }
     }
 }

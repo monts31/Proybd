@@ -11,7 +11,7 @@ namespace Proybd.Backend
         protected string server = "localhost";
         protected string database = "LosTresBombones";
         protected string user = "root";
-        protected string password = "root";
+        protected string password = "31tv9";
 
     }
 }

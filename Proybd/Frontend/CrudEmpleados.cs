@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using MySql.Data.MySqlClient;
 
 namespace Proybd.Frontend
 {
@@ -62,18 +63,38 @@ namespace Proybd.Frontend
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-            if (!datosCorrectos())
+            try
             {
-                return;
-            }
+                if (string.IsNullOrWhiteSpace(txtNombre.Text))
+                {
+                    MessageBox.Show("El nombre no puede estar vacio");
+                    return;
+                }
+                if (!txtTelefono.Text.All(char.IsDigit))
+                {
+                    MessageBox.Show("El telefono solo debe contener numeros");
+                    return;
+                }
+                else if (txtTelefono.Text.Length != 10)
+                {
+                    MessageBox.Show("El telefono debe contener 10 digitos");
+                    return;
+                }
 
-            cargarDatosEmpleado();
-            if (mEmpleadoConsultas.agregarEmpleados(mEmpleado))
-            {
-                MessageBox.Show("Empleado Agregado");
-                cargarEmpleados();
-                LimpiarCampos();
+                cargarDatosEmpleado();
+                if (mEmpleadoConsultas.agregarEmpleados(mEmpleado))
+                {
+                    MessageBox.Show("Empleado Agregado");
+                    cargarEmpleados();
+                    LimpiarCampos();
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al agregar empleado: " + ex.Message);
+            }
+            
+           
         }
 
         private void LimpiarCampos()
@@ -95,37 +116,48 @@ namespace Proybd.Frontend
             mEmpleado.id_Empleado = int.Parse(txtId_Empleado.Text.Trim());
             mEmpleado.nombre = txtNombre.Text.Trim();
             mEmpleado.telefono = txtTelefono.Text.Trim();
-            mEmpleado.rol = byte.Parse(txtRol.Text.Trim());
+            mEmpleado.rol = txtRol.Text.Trim();
             mEmpleado.horas = int.Parse(txtHoras.Text.Trim());
             mEmpleado.sueldo = float.Parse(txtSueldo.Text.Trim());
             mEmpleado.fecha_Contrato = DateTime.Parse(txtfecha_Contrato.Text.Trim());
 
-        }
-
-            }
             if (txtRol.Text.Trim().Equals(""))
             {
                 MessageBox.Show("Ingrese el Rol 1 = Administrador 2 = Empleado");
-                return false;
-
             }
             if (txtHoras.Text.Trim().Equals(""))
             {
-                MessageBox.Show("Ingrese el numero de horas de laburo");
-                return false;
-
+                MessageBox.Show("Ingrese el numero de horas laborales");      
             }
             if (txtSueldo.Text.Trim().Equals(""))
             {
                 MessageBox.Show("Ingrese el sueldo del empleado");
-                return false;
-
             }
-        }*/
->>>>>>> 57a4c37394771c7f746fdc97e48c9228fd1712af
+        }
+
         private void btnEliminar_Click(object sender, EventArgs e)
         {
 
+            if (string.IsNullOrWhiteSpace(txtId_Empleado.Text)) { 
+                MessageBox.Show("Seleccione un empleado para eliminar");
+                return;
+            }
+            DialogResult confirm = MessageBox.Show("¿Está seguro de que desea eliminar este empleado?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            
+            if (confirm != DialogResult.Yes)
+            {
+                return;
+            }
+
+            if (mEmpleadoConsultas.eliminarEmpleado(int.Parse(txtId_Empleado.Text.Trim())))
+            {
+                MessageBox.Show("Empleado Eliminado");
+                cargarEmpleados();
+                LimpiarCampos();
+            }
+            else { 
+             MessageBox.Show("No se pudo eliminar el empleado");
+            }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -135,22 +167,23 @@ namespace Proybd.Frontend
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            frmMenu menu = new frmMenu();
+            menu.ShowDialog();
+            this.Close();
         }
 
         private void dgvEmpleados_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow fila = dgvEmpleados.Rows[e.RowIndex];
             txtId_Empleado.Text = Convert.ToString(fila.Cells["id_Empleado"].Value);
-            txtNombre.Text = Convert.ToString(fila.Cells["nombre "].Value);
+            txtNombre.Text = Convert.ToString(fila.Cells["nombre"].Value);
             txtTelefono.Text = Convert.ToString(fila.Cells["telefono"].Value);
-            txtRol.Text = Convert.ToString(fila.Cells["rol "].Value);
+            txtRol.Text = Convert.ToString(fila.Cells["rol"].Value);
             txtHoras.Text = Convert.ToString(fila.Cells["horas"].Value);
             txtSueldo.Text = Convert.ToString(fila.Cells["sueldo"].Value);
             txtSueldo.Text = Convert.ToString(fila.Cells["sueldo"].Value);
-            txtfecha_Contrato.Text = Convert.ToString(fila.Cells["fecha_Contrato "].Value);
-
-
+            txtfecha_Contrato.Text = Convert.ToString(fila.Cells["fecha_Contrato"].Value);
 
         }
     }

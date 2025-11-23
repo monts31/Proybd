@@ -47,6 +47,8 @@
             btnConfirmar = new Button();
             btnIZQ = new Button();
             btnDer = new Button();
+            btnProducts = new Button();
+            btnEmpleados = new Button();
             ((System.ComponentModel.ISupportInitialize)pic1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic4).BeginInit();
@@ -72,7 +74,7 @@
             lblFecha.AutoSize = true;
             lblFecha.BackColor = Color.Transparent;
             lblFecha.Font = new Font("Palatino Linotype", 27.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            lblFecha.Location = new Point(248, 44);
+            lblFecha.Location = new Point(236, 33);
             lblFecha.Name = "lblFecha";
             lblFecha.Size = new Size(108, 51);
             lblFecha.TabIndex = 1;
@@ -83,7 +85,7 @@
             lblEmpleado.AutoSize = true;
             lblEmpleado.BackColor = Color.Transparent;
             lblEmpleado.Font = new Font("Palatino Linotype", 27.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            lblEmpleado.Location = new Point(652, 44);
+            lblEmpleado.Location = new Point(600, 33);
             lblEmpleado.Name = "lblEmpleado";
             lblEmpleado.Size = new Size(169, 51);
             lblEmpleado.TabIndex = 2;
@@ -91,107 +93,124 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(380, 61);
+            dateTimePicker1.Location = new Point(350, 55);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(224, 23);
             dateTimePicker1.TabIndex = 3;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(847, 61);
+            textBox1.Enabled = false;
+            textBox1.Location = new Point(765, 55);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(179, 23);
             textBox1.TabIndex = 4;
             // 
             // pic1
             // 
+            pic1.Image = (Image)resources.GetObject("pic1.Image");
             pic1.Location = new Point(80, 123);
             pic1.Name = "pic1";
             pic1.Size = new Size(223, 173);
+            pic1.SizeMode = PictureBoxSizeMode.Zoom;
             pic1.TabIndex = 5;
             pic1.TabStop = false;
             // 
             // pic2
             // 
+            pic2.Image = (Image)resources.GetObject("pic2.Image");
             pic2.Location = new Point(354, 123);
             pic2.Name = "pic2";
             pic2.Size = new Size(223, 173);
+            pic2.SizeMode = PictureBoxSizeMode.Zoom;
             pic2.TabIndex = 6;
             pic2.TabStop = false;
             // 
             // pic4
             // 
+            pic4.Image = (Image)resources.GetObject("pic4.Image");
             pic4.Location = new Point(895, 123);
             pic4.Name = "pic4";
             pic4.Size = new Size(223, 173);
+            pic4.SizeMode = PictureBoxSizeMode.Zoom;
             pic4.TabIndex = 8;
             pic4.TabStop = false;
             // 
             // pic3
             // 
+            pic3.Image = (Image)resources.GetObject("pic3.Image");
             pic3.Location = new Point(623, 123);
             pic3.Name = "pic3";
             pic3.Size = new Size(223, 173);
+            pic3.SizeMode = PictureBoxSizeMode.Zoom;
             pic3.TabIndex = 7;
             pic3.TabStop = false;
             pic3.Click += pictureBox4_Click;
             // 
             // pic8
             // 
+            pic8.Image = (Image)resources.GetObject("pic8.Image");
             pic8.Location = new Point(895, 325);
             pic8.Name = "pic8";
             pic8.Size = new Size(223, 173);
+            pic8.SizeMode = PictureBoxSizeMode.Zoom;
             pic8.TabIndex = 12;
             pic8.TabStop = false;
             // 
             // pic7
             // 
+            pic7.Image = (Image)resources.GetObject("pic7.Image");
             pic7.Location = new Point(623, 325);
             pic7.Name = "pic7";
             pic7.Size = new Size(223, 173);
+            pic7.SizeMode = PictureBoxSizeMode.Zoom;
             pic7.TabIndex = 11;
             pic7.TabStop = false;
             // 
             // pic6
             // 
+            pic6.Image = (Image)resources.GetObject("pic6.Image");
             pic6.Location = new Point(354, 325);
             pic6.Name = "pic6";
             pic6.Size = new Size(223, 173);
+            pic6.SizeMode = PictureBoxSizeMode.Zoom;
             pic6.TabIndex = 10;
             pic6.TabStop = false;
             // 
             // pic5
             // 
+            pic5.Image = (Image)resources.GetObject("pic5.Image");
             pic5.Location = new Point(80, 325);
             pic5.Name = "pic5";
             pic5.Size = new Size(223, 173);
+            pic5.SizeMode = PictureBoxSizeMode.Zoom;
             pic5.TabIndex = 9;
             pic5.TabStop = false;
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(51, 524);
+            dataGridView1.Location = new Point(-40, 528);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(1086, 151);
             dataGridView1.TabIndex = 13;
             // 
             // btnRechazar
             // 
-            btnRechazar.Location = new Point(380, 681);
+            btnRechazar.Location = new Point(378, 685);
             btnRechazar.Name = "btnRechazar";
             btnRechazar.Size = new Size(132, 32);
             btnRechazar.TabIndex = 14;
-            btnRechazar.Text = "button1";
+            btnRechazar.Text = "Cancelar";
             btnRechazar.UseVisualStyleBackColor = true;
             // 
             // btnConfirmar
             // 
-            btnConfirmar.Location = new Point(672, 681);
+            btnConfirmar.Location = new Point(671, 685);
             btnConfirmar.Name = "btnConfirmar";
             btnConfirmar.Size = new Size(132, 32);
             btnConfirmar.TabIndex = 15;
-            btnConfirmar.Text = "button2";
+            btnConfirmar.Text = "Confirmar venta";
             btnConfirmar.UseVisualStyleBackColor = true;
             // 
             // btnIZQ
@@ -213,12 +232,36 @@
             btnDer.TabIndex = 17;
             btnDer.UseVisualStyleBackColor = true;
             // 
-            // Menu
+            // btnProducts
+            // 
+            btnProducts.Font = new Font("Palatino Linotype", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            btnProducts.Location = new Point(1019, 46);
+            btnProducts.Name = "btnProducts";
+            btnProducts.Size = new Size(189, 32);
+            btnProducts.TabIndex = 18;
+            btnProducts.Text = "Ver productos disponibles";
+            btnProducts.UseVisualStyleBackColor = true;
+            btnProducts.Click += btnProducts_Click;
+            // 
+            // btnEmpleados
+            // 
+            btnEmpleados.Location = new Point(1051, 691);
+            btnEmpleados.Name = "btnEmpleados";
+            btnEmpleados.Size = new Size(75, 23);
+            btnEmpleados.TabIndex = 19;
+            btnEmpleados.Text = "Empleados";
+            btnEmpleados.UseVisualStyleBackColor = true;
+            btnEmpleados.Click += btnEmpleados_Click;
+            // 
+            // frmMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(1220, 716);
+            ClientSize = new Size(1220, 729);
+            Controls.Add(btnEmpleados);
+            Controls.Add(btnProducts);
             Controls.Add(btnDer);
             Controls.Add(btnIZQ);
             Controls.Add(btnConfirmar);
@@ -237,7 +280,7 @@
             Controls.Add(lblEmpleado);
             Controls.Add(lblFecha);
             Controls.Add(label1);
-            Name = "Menu";
+            Name = "frmMenu";
             Text = "Form2";
             Load += Menu_Load;
             ((System.ComponentModel.ISupportInitialize)pic1).EndInit();
@@ -273,5 +316,7 @@
         private Button btnConfirmar;
         private Button btnIZQ;
         private Button btnDer;
+        private Button btnProducts;
+        private Button btnEmpleados;
     }
 }

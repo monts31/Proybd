@@ -79,7 +79,7 @@
             txtUsuario.Location = new Point(537, 274);
             txtUsuario.Name = "txtUsuario";
             txtUsuario.Size = new Size(346, 33);
-            txtUsuario.TabIndex = 3;
+            txtUsuario.TabIndex = 0;
             // 
             // txtPassword
             // 
@@ -88,7 +88,7 @@
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
             txtPassword.Size = new Size(308, 33);
-            txtPassword.TabIndex = 4;
+            txtPassword.TabIndex = 1;
             // 
             // btnIngresar
             // 
@@ -97,7 +97,7 @@
             btnIngresar.Location = new Point(557, 417);
             btnIngresar.Name = "btnIngresar";
             btnIngresar.Size = new Size(164, 43);
-            btnIngresar.TabIndex = 5;
+            btnIngresar.TabIndex = 3;
             btnIngresar.Text = "Iniciar sesión";
             btnIngresar.UseMnemonic = false;
             btnIngresar.UseVisualStyleBackColor = false;

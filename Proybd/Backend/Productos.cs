@@ -12,7 +12,7 @@ namespace Proybd.Backend
         public string nombre { get; set; }
         public string descripcion { get; set; }
         public float precio { get; set; }
-        public int strock {  get; set; }
+        public int stock {  get; set; }
         public byte[] foto { get; set; }
 
     }

@@ -146,7 +146,7 @@
             btnRegresar.Name = "btnRegresar";
             btnRegresar.Size = new Size(165, 35);
             btnRegresar.TabIndex = 4;
-            btnRegresar.Text = "Insertar";
+            btnRegresar.Text = "Regresar";
             btnRegresar.UseVisualStyleBackColor = true;
             btnRegresar.Click += btnRegresar_Click;
             // 
@@ -286,6 +286,7 @@
             // 
             // txtId_Empleado
             // 
+            txtId_Empleado.Enabled = false;
             txtId_Empleado.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtId_Empleado.Location = new Point(160, 58);
             txtId_Empleado.Name = "txtId_Empleado";

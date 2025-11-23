@@ -15,7 +15,7 @@ namespace Proybd.Backend
         {
 
             MySqlConnection cn = new MySqlConnection();
-            cn.ConnectionString = "server=localhost; database=LosTresBombones; user=root; pwd=Dagu12oa";
+            cn.ConnectionString = "server=localhost; database=LosTresBombones; user=root; pwd=31tv9";
             try
             {
                 cn.Open();
