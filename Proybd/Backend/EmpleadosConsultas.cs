@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Proybd.pojo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,14 +11,14 @@ namespace Proybd.Backend
     internal class EmpleadosConsultas
     {
         private ConexiónMSQL conexiónMSQL;
-        private List<Empleados> mEmpleados;
+        private List<clsEmpleados> mEmpleados;
         public EmpleadosConsultas()
         {
             conexiónMSQL = new ConexiónMSQL();
-            mEmpleados = new List<Empleados>();
+            mEmpleados = new List<clsEmpleados>();
         }
 
-        public List<Empleados> getEmpleados(string filtro)
+        public List<clsEmpleados> getEmpleados(string filtro)
         {
             string QUERY = "SELECT * FROM Empleados ";
             MySqlDataReader mReader = null;
@@ -39,10 +40,10 @@ namespace Proybd.Backend
                 mComando.Connection = conexiónMSQL.GetConnection();
                 mReader = mComando.ExecuteReader();
 
-                Empleados mEmpleadoss = null;
+                clsEmpleados mEmpleadoss = null;
                 while (mReader.Read())
                 {
-                    mEmpleadoss = new Empleados();
+                    mEmpleadoss = new clsEmpleados();
                     mEmpleadoss.id_Empleado = mReader.GetInt16("id_Empleado");
                     mEmpleadoss.nombre = mReader.GetString("nombre");
                     mEmpleadoss.telefono = mReader.GetString("telefono");
@@ -63,7 +64,7 @@ namespace Proybd.Backend
             return mEmpleados;
         }
 
-        public bool agregarEmpleados(Empleados mEmpleado)
+        public bool agregarEmpleados(clsEmpleados mEmpleado)
         {
             string INSERT = "INSERT INTO Empleados(id_Empleado , nombre , telefono , rol , horas , sueldo ,  fecha_Contrato) values (@id_Empleado,@nombre ,@telefono ,@rol ,@horas ,@sueldo ,@fecha_Contrato);";
             MySqlCommand mcCommand = new MySqlCommand(INSERT, conexiónMSQL.GetConnection());
@@ -87,7 +88,7 @@ namespace Proybd.Backend
             return mcCommand.ExecuteNonQuery() > 0;
         }
 
-        public bool actualizarEmpleado(Empleados mEmpleado)
+        public bool actualizarEmpleado(clsEmpleados mEmpleado)
         {
             string UPDATE = "UPDATE Empleados SET nombre = @nombre, telefono = @telefono, rol = @rol, horas = @horas, sueldo = @sueldo, fecha_Contrato = @fecha_Contrato WHERE id_Empleado = @id_Empleado;";
             MySqlCommand mcCommand = new MySqlCommand(UPDATE, conexiónMSQL.GetConnection());
