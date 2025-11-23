@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Proybd.Backend
 {
-    internal class EmpleadosConsultas
+    public class EmpleadosConsultas
     {
         private ConexiónMSQL conexiónMSQL;
         private List<clsEmpleados> mEmpleados;
@@ -64,6 +64,50 @@ namespace Proybd.Backend
             return mEmpleados;
         }
 
+        public clsEmpleados obtenerEmpleado(clsUsuarios usuario)
+        {
+            MySqlConnection conn = conexiónMSQL.GetConnection();
+            clsEmpleados empleado = null;
+            try
+            {
+                string strSQL = "select * from Empleados e join usuarios u on e.id_empleado = u.id_empleado where u.usuario = @usuario and u.password = SHA1(@password)";
+
+                MySqlCommand command = new MySqlCommand(strSQL, conn);
+                command.Parameters.AddWithValue("@usuario", usuario.Usuario);
+                command.Parameters.AddWithValue("@password", usuario.Contraseña);
+
+                
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        empleado = new clsEmpleados();
+                        empleado.id_Empleado = reader.GetInt32("id_Empleado");
+                        empleado.nombre = reader.GetString("nombre");
+                        empleado.telefono = reader.GetString("telefono");
+                        empleado.rol = reader.GetString("rol");
+                        empleado.horas = reader.GetInt16("horas");
+                        empleado.sueldo = reader.GetFloat("sueldo");
+                        empleado.fecha_Contrato = reader.GetDateTime("fecha_Contrato");
+                        
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontró el empleado asociado a las credenciales proporcionadas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al obtener datos del empleado: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return empleado;
+        }
+            
         public bool agregarEmpleados(clsEmpleados mEmpleado)
         {
             string INSERT = "INSERT INTO Empleados(id_Empleado , nombre , telefono , rol , horas , sueldo ,  fecha_Contrato) values (@id_Empleado,@nombre ,@telefono ,@rol ,@horas ,@sueldo ,@fecha_Contrato);";

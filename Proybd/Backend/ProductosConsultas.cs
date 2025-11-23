@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Proybd.Backend
 {
-    internal class ProductosConsultas
+    public class ProductosConsultas
     {
         private ConexiónMSQL conexionMSQL;
 
@@ -42,5 +42,7 @@ namespace Proybd.Backend
 
             return lista;
         }
+
+
     }
 }

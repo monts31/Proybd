@@ -11,20 +11,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using MySql.Data.MySqlClient;
+using Proybd.pojo;
 
 namespace Proybd.Frontend
 {
     public partial class CrudEmpleados : Form
     {
-        private List<Empleados> mEmpleados;
-        private Empleados mEmpleado;
+        private List<clsEmpleados> mEmpleados;
+        private clsEmpleados mEmpleado;
         private EmpleadosConsultas mEmpleadoConsultas;
         public CrudEmpleados()
         {
             InitializeComponent();
-            mEmpleados = new List<Empleados>();
+            mEmpleados = new List<clsEmpleados>();
             mEmpleadoConsultas = new EmpleadosConsultas();
-            mEmpleado = new Empleados();
+            mEmpleado = new clsEmpleados();
             cargarEmpleados();
         }
 

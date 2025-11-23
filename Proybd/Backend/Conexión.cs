@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Proybd.Backend
 {
-    internal class Conexión
+    public class Conexión
     {
         protected string server = "localhost";
         protected string database = "LosTresBombones";
         protected string user = "root";
-        protected string password = "31tv9";
+        protected string password = "Dagu12oa";
 
     }
 }

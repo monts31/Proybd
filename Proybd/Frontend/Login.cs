@@ -29,7 +29,6 @@ namespace Proybd
                 return;
             }
 
-
             try
             {
                 clsConsultaUsuarios cons = new clsConsultaUsuarios();
@@ -39,8 +38,7 @@ namespace Proybd
                 if (revisar == true)
                 {
                     MessageBox.Show("Usuario encontrado", "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    frmMenu menu = new frmMenu();
+                    frmMenu menu = new frmMenu(usuario);
                     this.Hide();
                     menu.ShowDialog();
                     this.Close();

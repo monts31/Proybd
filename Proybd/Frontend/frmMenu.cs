@@ -1,4 +1,5 @@
 ﻿using Proybd.Backend;
+using Proybd.pojo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,15 +14,31 @@ namespace Proybd.Frontend
 {
     public partial class frmMenu : Form
     {
+        clsEmpleados empleado = new clsEmpleados();
         public frmMenu()
         {
             InitializeComponent();
             
         }
 
-        public frmMenu(clsConsultaUsuarios usuario)
+        public frmMenu(clsUsuarios usuario)
         {
             InitializeComponent();
+            EmpleadosConsultas cons = new EmpleadosConsultas();
+            empleado = cons.obtenerEmpleado(usuario);
+
+            string nombreEmpleado = empleado.nombre;
+            if (nombreEmpleado != null)
+            {
+                txtEmpleado.Text = nombreEmpleado;
+                MessageBox.Show("Bienvenido " + empleado.nombre, "Inicio de sesión exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("No se pudo obtener el nombre del empleado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+                txtEmpleado.Enabled = false;
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
