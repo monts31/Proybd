@@ -67,12 +67,12 @@ namespace Proybd.Frontend
                 return;
             }
 
-            cargarDatosEmpleado();
-            if (mEmpleadoConsultas.agregarEmpleados(mEmpleado))
+        private bool datosCorrectos()
+        {
+            if (txtNombre.Text.Trim().Equals(""))
             {
-                MessageBox.Show("Empleado Agregado");
-                cargarEmpleados();
-                LimpiarCampos();
+                MessageBox.Show("Ingrese el nombre");
+                return false;
             }
         }
 
@@ -101,6 +101,8 @@ namespace Proybd.Frontend
 
         }
 
+            }
+        }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
 
