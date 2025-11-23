@@ -1,0 +1,5 @@
+insert into empleados (nombre, telefono, rol, horas, sueldo) 
+values ('Jonathan Alejandro', '4451234568', 1, 8, 12141.41);
+
+insert into usuarios (usuario, password, correo, id_Empleado) 
+values ('admin', sha1('123'), 'admin@gmail.com', 1);
