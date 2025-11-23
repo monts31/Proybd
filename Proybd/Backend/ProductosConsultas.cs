@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Proybd.pojo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,9 @@ namespace Proybd.Backend
         {
             conexionMSQL = new ConexiónMSQL();
         }
-        public List<Productos> getProductos()
+        public List<clsProductos> getProductos()
         {
-            List<Productos> lista = new List<Productos>();
+            List<clsProductos> lista = new List<clsProductos>();
 
             string QUERY = "SELECT * FROM productos;";
 
@@ -26,7 +27,7 @@ namespace Proybd.Backend
             {
                 while (reader.Read())
                 {
-                    Productos p = new Productos();
+                    clsProductos p = new clsProductos();
 
                     p.id_Producto = reader.GetInt32("id_Producto");
                     p.nombre = reader.GetString("nombre");

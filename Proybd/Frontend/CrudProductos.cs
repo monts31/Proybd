@@ -8,21 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Proybd.Backend;
+using Proybd.pojo;
 
 namespace Proybd.Frontend
 {
     public partial class CrudProductos : Form
     {
-        private List<Productos> Products;
-        private Productos productoSeleccionado;
+        private List<clsProductos> Products;
+        private clsProductos productoSeleccionado;
         private ProductosConsultas productosConsultas;
 
         public CrudProductos()
         {
             InitializeComponent();
-            Products = new List<Productos>();
+            Products = new List<clsProductos>();
             productosConsultas = new ProductosConsultas();
-            productoSeleccionado = new Productos();
+            productoSeleccionado = new clsProductos();
             cargarProductos();
         }
 

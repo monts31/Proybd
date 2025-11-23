@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proybd.Backend
+namespace Proybd.pojo
 {
-    public class Productos
+    public class clsProductos
     {
         public int id_Producto { get; set; }
         public string nombre { get; set; }
