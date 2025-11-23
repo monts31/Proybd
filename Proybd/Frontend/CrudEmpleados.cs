@@ -99,68 +99,8 @@ namespace Proybd.Frontend
             mEmpleado.sueldo = float.Parse(txtSueldo.Text.Trim());
             mEmpleado.fecha_Contrato = DateTime.Parse(txtfecha_Contrato.Text.Trim());
 
-
         }
 
-        private bool datosCorrectos()
-        {
-            if (txtId_Empleado.Text.Trim().Equals(""))
-            {
-                MessageBox.Show("Ingrese el nombre");
-                return false;
-            }
-            if (txtNombre.Text.Trim().Equals(""))
-            {
-                MessageBox.Show("Ingrese el nombre");
-                return false;
-            }
-            if (txtTelefono.Text.Trim().Equals(""))
-            {
-                MessageBox.Show("Ingrese el Telefono");
-                return false;
-
-            }
-            if (txtRol.Text.Trim().Equals(""))
-            {
-                MessageBox.Show("Ingrese el Rol 1 = Administrador 2 = Empleado");
-                return false;
-
-            }
-            if (txtHoras.Text.Trim().Equals(""))
-            {
-                MessageBox.Show("Ingrese el numero de horas de laburo");
-                return false;
-
-            }
-            if (txtSueldo.Text.Trim().Equals(""))
-            {
-                MessageBox.Show("Ingrese el sueldo del empleado");
-                return false;
-
-            }
-            if (!int.TryParse(txtId_Empleado.Text.Trim(), out int id_Empleado))
-            {
-                MessageBox.Show("Ingrese solo valores 1-2");
-                return false;
-            }
-            if (!int.TryParse(txtRol.Text.Trim(), out int rol))
-            {
-                MessageBox.Show("Ingrese solo valores 1-2");
-                return false;
-            }
-            if (!int.TryParse(txtHoras.Text.Trim(), out int horas))
-            {
-                MessageBox.Show("Ingrese solo valores numericos enteros");
-                return false;
-            }
-            if (!float.TryParse(txtSueldo.Text.Trim(), out float sueldo))
-            {
-                MessageBox.Show("Ingrese solo valores numericos");
-                return false;
-            }
-
-            return true;
-        }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
 
