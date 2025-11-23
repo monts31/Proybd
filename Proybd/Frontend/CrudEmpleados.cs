@@ -64,7 +64,7 @@ namespace Proybd.Frontend
 
         }
 
-        private bool datosCorrectos()
+        /*private bool datosCorrectos()
         {
             if (txtNombre.Text.Trim().Equals(""))
             {
@@ -95,7 +95,7 @@ namespace Proybd.Frontend
                 return false;
 
             }
-        }
+        }*/
         private void btnEliminar_Click(object sender, EventArgs e)
         {
 

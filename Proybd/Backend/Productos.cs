@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proybd.Backend
 {
-    internal class Menu
+    public class Productos
     {
         public int id_Producto { get; set; }
         public string nombre { get; set; }

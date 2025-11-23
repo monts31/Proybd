@@ -9,7 +9,7 @@ using Proybd.pojo;
 
 namespace Proybd.Backend
 {
-    public class consulta_usuario
+    public class clsConsultaUsuarios
     {
         public bool IniciarSesion(clsUsuarios usuario)
         {
