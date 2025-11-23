@@ -16,13 +16,14 @@ namespace Proybd.Frontend
     public partial class CrudEmpleados : Form
     {
         private List<Empleados> mEmpleados;
+        private Empleados mEmpleado;
         private EmpleadosConsultas mEmpleadoConsultas;
         public CrudEmpleados()
         {
             InitializeComponent();
             mEmpleados = new List<Empleados>();
             mEmpleadoConsultas = new EmpleadosConsultas();
-
+            mEmpleado = new Empleados();
             cargarEmpleados();
         }
 
@@ -61,11 +62,53 @@ namespace Proybd.Frontend
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
+            if (!datosCorrectos())
+            {
+                return;
+            }
+
+            cargarDatosEmpleado();
+            if (mEmpleadoConsultas.agregarEmpleados(mEmpleado))
+            {
+                MessageBox.Show("Empleado Agregado");
+                cargarEmpleados();
+                LimpiarCampos();
+            }
+        }
+
+        private void LimpiarCampos()
+        {
+            txtId_Empleado.Text = "";
+            txtNombre.Text = "";
+            txtTelefono.Text = "";
+            txtRol.Text = "";
+            txtHoras.Text = "";
+            txtSueldo.Text = "";
+            txtfecha_Contrato.Text = "";
+
+        }
+
+        private void cargarDatosEmpleado()
+        {
+
+            mEmpleado.id_Empleado = int.Parse(txtId_Empleado.Text.Trim());
+            mEmpleado.nombre = txtNombre.Text.Trim();
+            mEmpleado.telefono = txtTelefono.Text.Trim();
+            mEmpleado.rol = byte.Parse(txtRol.Text.Trim());
+            mEmpleado.horas = int.Parse(txtHoras.Text.Trim());
+            mEmpleado.sueldo = float.Parse(txtSueldo.Text.Trim());
+            mEmpleado.fecha_Contrato = DateTime.Parse(txtfecha_Contrato.Text.Trim());
+
 
         }
 
         private bool datosCorrectos()
         {
+            if (txtId_Empleado.Text.Trim().Equals(""))
+            {
+                MessageBox.Show("Ingrese el nombre");
+                return false;
+            }
             if (txtNombre.Text.Trim().Equals(""))
             {
                 MessageBox.Show("Ingrese el nombre");
@@ -95,6 +138,28 @@ namespace Proybd.Frontend
                 return false;
 
             }
+            if (!int.TryParse(txtId_Empleado.Text.Trim(), out int id_Empleado))
+            {
+                MessageBox.Show("Ingrese solo valores 1-2");
+                return false;
+            }
+            if (!int.TryParse(txtRol.Text.Trim(), out int rol))
+            {
+                MessageBox.Show("Ingrese solo valores 1-2");
+                return false;
+            }
+            if (!int.TryParse(txtHoras.Text.Trim(), out int horas))
+            {
+                MessageBox.Show("Ingrese solo valores numericos enteros");
+                return false;
+            }
+            if (!float.TryParse(txtSueldo.Text.Trim(), out float sueldo))
+            {
+                MessageBox.Show("Ingrese solo valores numericos");
+                return false;
+            }
+
+            return true;
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -108,6 +173,22 @@ namespace Proybd.Frontend
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void dgvEmpleados_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow fila = dgvEmpleados.Rows[e.RowIndex];
+            txtId_Empleado.Text = Convert.ToString(fila.Cells["id_Empleado"].Value);
+            txtNombre.Text = Convert.ToString(fila.Cells["nombre "].Value);
+            txtTelefono.Text = Convert.ToString(fila.Cells["telefono"].Value);
+            txtRol.Text = Convert.ToString(fila.Cells["rol "].Value);
+            txtHoras.Text = Convert.ToString(fila.Cells["horas"].Value);
+            txtSueldo.Text = Convert.ToString(fila.Cells["sueldo"].Value);
+            txtSueldo.Text = Convert.ToString(fila.Cells["sueldo"].Value);
+            txtfecha_Contrato.Text = Convert.ToString(fila.Cells["fecha_Contrato "].Value);
+
+
 
         }
     }

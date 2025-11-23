@@ -70,6 +70,7 @@
             dgvEmpleados.Name = "dgvEmpleados";
             dgvEmpleados.Size = new Size(642, 538);
             dgvEmpleados.TabIndex = 0;
+            dgvEmpleados.CellClick += dgvEmpleados_CellClick;
             // 
             // id_Empleado
             // 

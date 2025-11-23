@@ -61,5 +61,21 @@ namespace Proybd.Backend
             }
             return mEmpleados;
         }
+
+        internal bool agregarEmpleados(Empleados mEmpleado)
+        {
+            string INSERT = "INSERT INTO Empleados(id_Empleado , nombre , telefono , rol , horas , sueldo ,  fecha_Contrato) values (@id_Empleado,@nombre ,@telefono ,@rol ,@horas ,@sueldo ,@fecha_Contrato);";
+            MySqlCommand mcCommand = new MySqlCommand(INSERT, conexiónMSQL.GetConnection());
+            mcCommand.Parameters.Add(new MySqlParameter("@id_Empleado", mEmpleado.id_Empleado));
+            mcCommand.Parameters.Add(new MySqlParameter("@nombre", mEmpleado.nombre));
+            mcCommand.Parameters.Add(new MySqlParameter("@telefono", mEmpleado.telefono));
+            mcCommand.Parameters.Add(new MySqlParameter("@rol", mEmpleado.rol));
+            mcCommand.Parameters.Add(new MySqlParameter("@horas", mEmpleado.horas));
+            mcCommand.Parameters.Add(new MySqlParameter("@sueldo", mEmpleado.sueldo));
+            mcCommand.Parameters.Add(new MySqlParameter("@fecha_Contrato", mEmpleado.fecha_Contrato));
+
+            return mcCommand.ExecuteNonQuery() > 0;
+
+        }
     }
 }

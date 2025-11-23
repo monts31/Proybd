@@ -10,7 +10,11 @@ namespace Proybd.Backend
 {
     public class login
     {
+<<<<<<< HEAD
         public bool IniciarSesion(Personas persona)
+=======
+        /*public bool IniciarSesion(//Personas persona)
+>>>>>>> 1c670cd060883907daacafecc69155e4fe3a1a7e
         {
 
             MySqlConnection cn = new MySqlConnection();
