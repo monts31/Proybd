@@ -67,16 +67,17 @@ namespace Proybd.Frontend
                 return;
             }
 
-        private bool datosCorrectos()
-        {
-            if (txtNombre.Text.Trim().Equals(""))
+            cargarDatosEmpleado();
+            if (mEmpleadoConsultas.agregarEmpleados(mEmpleado))
             {
-                MessageBox.Show("Ingrese el nombre");
-                return false;
+                MessageBox.Show("Empleado Agregado");
+                cargarEmpleados();
+                LimpiarCampos();
             }
         }
 
         private void LimpiarCampos()
+
         {
             txtId_Empleado.Text = "";
             txtNombre.Text = "";
@@ -102,7 +103,26 @@ namespace Proybd.Frontend
         }
 
             }
-        }
+            if (txtRol.Text.Trim().Equals(""))
+            {
+                MessageBox.Show("Ingrese el Rol 1 = Administrador 2 = Empleado");
+                return false;
+
+            }
+            if (txtHoras.Text.Trim().Equals(""))
+            {
+                MessageBox.Show("Ingrese el numero de horas de laburo");
+                return false;
+
+            }
+            if (txtSueldo.Text.Trim().Equals(""))
+            {
+                MessageBox.Show("Ingrese el sueldo del empleado");
+                return false;
+
+            }
+        }*/
+>>>>>>> 57a4c37394771c7f746fdc97e48c9228fd1712af
         private void btnEliminar_Click(object sender, EventArgs e)
         {
 
