@@ -16,5 +16,18 @@ namespace Proybd.Frontend
         {
             InitializeComponent();
         }
+
+        private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnInicio_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmInicio inicio = new frmInicio();
+            inicio.ShowDialog();
+            this.Close();
+        }
     }
 }

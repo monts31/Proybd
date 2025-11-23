@@ -94,8 +94,8 @@ namespace Proybd.Frontend
             {
                 MessageBox.Show("Error al agregar empleado: " + ex.Message);
             }
-            
-           
+
+
         }
 
         private void LimpiarCampos()
@@ -128,7 +128,7 @@ namespace Proybd.Frontend
             }
             if (txtHoras.Text.Trim().Equals(""))
             {
-                MessageBox.Show("Ingrese el numero de horas laborales");      
+                MessageBox.Show("Ingrese el numero de horas laborales");
             }
             if (txtSueldo.Text.Trim().Equals(""))
             {
@@ -139,12 +139,13 @@ namespace Proybd.Frontend
         private void btnEliminar_Click(object sender, EventArgs e)
         {
 
-            if (string.IsNullOrWhiteSpace(txtId_Empleado.Text)) { 
+            if (string.IsNullOrWhiteSpace(txtId_Empleado.Text))
+            {
                 MessageBox.Show("Seleccione un empleado para eliminar");
                 return;
             }
             DialogResult confirm = MessageBox.Show("¿Está seguro de que desea eliminar este empleado?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            
+
             if (confirm != DialogResult.Yes)
             {
                 return;
@@ -156,8 +157,9 @@ namespace Proybd.Frontend
                 cargarEmpleados();
                 LimpiarCampos();
             }
-            else { 
-             MessageBox.Show("No se pudo eliminar el empleado");
+            else
+            {
+                MessageBox.Show("No se pudo eliminar el empleado");
             }
         }
 
@@ -186,6 +188,14 @@ namespace Proybd.Frontend
             txtSueldo.Text = Convert.ToString(fila.Cells["sueldo"].Value);
             txtfecha_Contrato.Text = Convert.ToString(fila.Cells["fecha_Contrato"].Value);
 
+        }
+
+        private void btnInicio_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmInicio inicio = new frmInicio();
+            inicio.ShowDialog();
+            this.Close();
         }
     }
 }

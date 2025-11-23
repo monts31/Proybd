@@ -40,7 +40,6 @@
             btnInsertar = new Button();
             btnEliminar = new Button();
             btnModificar = new Button();
-            btnRegresar = new Button();
             label1 = new Label();
             txtNombre = new TextBox();
             txtTelefono = new TextBox();
@@ -58,6 +57,7 @@
             txtId_Empleado = new TextBox();
             label6 = new Label();
             label8 = new Label();
+            btnInicio = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvEmpleados).BeginInit();
             SuspendLayout();
             // 
@@ -112,43 +112,36 @@
             // 
             // btnInsertar
             // 
+            btnInsertar.BackColor = Color.YellowGreen;
             btnInsertar.Location = new Point(38, 524);
             btnInsertar.Name = "btnInsertar";
             btnInsertar.Size = new Size(165, 35);
             btnInsertar.TabIndex = 1;
             btnInsertar.Text = "Insertar";
-            btnInsertar.UseVisualStyleBackColor = true;
+            btnInsertar.UseVisualStyleBackColor = false;
             btnInsertar.Click += btnInsertar_Click;
             // 
             // btnEliminar
             // 
+            btnEliminar.BackColor = Color.YellowGreen;
             btnEliminar.Location = new Point(262, 524);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(165, 35);
             btnEliminar.TabIndex = 2;
             btnEliminar.Text = "Eliminar";
-            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.UseVisualStyleBackColor = false;
             btnEliminar.Click += btnEliminar_Click;
             // 
             // btnModificar
             // 
+            btnModificar.BackColor = Color.YellowGreen;
             btnModificar.Location = new Point(38, 585);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(165, 35);
             btnModificar.TabIndex = 3;
             btnModificar.Text = "Modificar";
-            btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.UseVisualStyleBackColor = false;
             btnModificar.Click += btnModificar_Click;
-            // 
-            // btnRegresar
-            // 
-            btnRegresar.Location = new Point(262, 585);
-            btnRegresar.Name = "btnRegresar";
-            btnRegresar.Size = new Size(165, 35);
-            btnRegresar.TabIndex = 4;
-            btnRegresar.Text = "Regresar";
-            btnRegresar.UseVisualStyleBackColor = true;
-            btnRegresar.Click += btnRegresar_Click;
             // 
             // label1
             // 
@@ -315,12 +308,25 @@
             label8.TabIndex = 21;
             label8.Text = "Nota: Los campos como el id_Empleado o fecha de contrato pueden ser \r\nauto rellenados, el resto de campos son obligatorios.\r\n";
             // 
+            // btnInicio
+            // 
+            btnInicio.BackColor = Color.YellowGreen;
+            btnInicio.Location = new Point(262, 585);
+            btnInicio.Name = "btnInicio";
+            btnInicio.Size = new Size(165, 35);
+            btnInicio.TabIndex = 22;
+            btnInicio.Text = "INICIO";
+            btnInicio.UseVisualStyleBackColor = false;
+            btnInicio.Click += btnInicio_Click;
+            // 
             // CrudEmpleados
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.YellowGreen;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1163, 683);
+            Controls.Add(btnInicio);
             Controls.Add(label8);
             Controls.Add(txtId_Empleado);
             Controls.Add(label6);
@@ -338,7 +344,6 @@
             Controls.Add(label2);
             Controls.Add(txtNombre);
             Controls.Add(label1);
-            Controls.Add(btnRegresar);
             Controls.Add(btnModificar);
             Controls.Add(btnEliminar);
             Controls.Add(btnInsertar);
@@ -357,7 +362,6 @@
         private Button btnInsertar;
         private Button btnEliminar;
         private Button btnModificar;
-        private Button btnRegresar;
         private Label label1;
         private TextBox txtNombre;
         private TextBox txtTelefono;
@@ -382,5 +386,6 @@
         private TextBox txtId_Empleado;
         private Label label6;
         private Label label8;
+        private Button btnInicio;
     }
 }

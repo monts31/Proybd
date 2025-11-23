@@ -18,7 +18,7 @@ namespace Proybd.Frontend
         public frmMenu()
         {
             InitializeComponent();
-            
+
         }
 
         public frmMenu(clsUsuarios usuario)
@@ -38,7 +38,7 @@ namespace Proybd.Frontend
                 MessageBox.Show("No se pudo obtener el nombre del empleado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-                txtEmpleado.Enabled = false;
+            txtEmpleado.Enabled = false;
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
@@ -64,6 +64,19 @@ namespace Proybd.Frontend
             this.Hide();
             CrudProductos productos = new CrudProductos();
             productos.ShowDialog();
+            this.Close();
+        }
+
+        private void btnRechazar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnInicio_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmInicio inicio = new frmInicio();
+            inicio.ShowDialog();
             this.Close();
         }
     }

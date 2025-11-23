@@ -59,7 +59,25 @@ namespace Proybd.Frontend
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblStock_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnInicio_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmInicio inicio = new frmInicio();
+            inicio.ShowDialog();
+            this.Close();
         }
     }
 }
