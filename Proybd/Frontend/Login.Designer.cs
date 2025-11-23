@@ -43,9 +43,9 @@
             lblLogin.BackColor = Color.Transparent;
             lblLogin.Font = new Font("Palatino Linotype", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblLogin.ForeColor = SystemColors.ActiveCaptionText;
-            lblLogin.Location = new Point(676, 203);
+            lblLogin.Location = new Point(555, 162);
             lblLogin.Name = "lblLogin";
-            lblLogin.Size = new Size(109, 47);
+            lblLogin.Size = new Size(137, 59);
             lblLogin.TabIndex = 0;
             lblLogin.Text = "Login";
             // 
@@ -55,9 +55,9 @@
             lblUsuario.BackColor = Color.Transparent;
             lblUsuario.Font = new Font("Palatino Linotype", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblUsuario.ForeColor = SystemColors.ActiveCaptionText;
-            lblUsuario.Location = new Point(363, 280);
+            lblUsuario.Location = new Point(329, 241);
             lblUsuario.Name = "lblUsuario";
-            lblUsuario.Size = new Size(131, 44);
+            lblUsuario.Size = new Size(163, 54);
             lblUsuario.TabIndex = 1;
             lblUsuario.Text = "Usuario";
             // 
@@ -67,52 +67,58 @@
             lblPassword.BackColor = Color.Transparent;
             lblPassword.Font = new Font("Palatino Linotype", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblPassword.ForeColor = SystemColors.ActiveCaptionText;
-            lblPassword.Location = new Point(352, 349);
+            lblPassword.Location = new Point(329, 341);
             lblPassword.Name = "lblPassword";
-            lblPassword.Size = new Size(181, 44);
+            lblPassword.Size = new Size(222, 54);
             lblPassword.TabIndex = 2;
             lblPassword.Text = "Contraseña";
             // 
             // txtUsuario
             // 
             txtUsuario.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtUsuario.Location = new Point(562, 291);
+            txtUsuario.Location = new Point(498, 254);
+            txtUsuario.Margin = new Padding(3, 4, 3, 4);
             txtUsuario.Name = "txtUsuario";
-            txtUsuario.Size = new Size(346, 33);
+            txtUsuario.Size = new Size(395, 39);
             txtUsuario.TabIndex = 3;
             // 
             // txtPassword
             // 
             txtPassword.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtPassword.Location = new Point(562, 360);
+            txtPassword.Location = new Point(542, 354);
+            txtPassword.Margin = new Padding(3, 4, 3, 4);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(346, 33);
+            txtPassword.PasswordChar = '*';
+            txtPassword.Size = new Size(351, 39);
             txtPassword.TabIndex = 4;
             // 
             // btnIngresar
             // 
             btnIngresar.BackColor = Color.Tan;
             btnIngresar.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnIngresar.Location = new Point(546, 439);
+            btnIngresar.Location = new Point(521, 444);
+            btnIngresar.Margin = new Padding(3, 4, 3, 4);
             btnIngresar.Name = "btnIngresar";
-            btnIngresar.Size = new Size(164, 43);
+            btnIngresar.Size = new Size(187, 57);
             btnIngresar.TabIndex = 5;
             btnIngresar.Text = "Iniciar sesión";
             btnIngresar.UseMnemonic = false;
             btnIngresar.UseVisualStyleBackColor = false;
+            btnIngresar.Click += btnIngresar_Click;
             // 
             // Login
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(1199, 654);
+            ClientSize = new Size(1370, 694);
             Controls.Add(btnIngresar);
             Controls.Add(txtPassword);
             Controls.Add(txtUsuario);
             Controls.Add(lblPassword);
             Controls.Add(lblUsuario);
             Controls.Add(lblLogin);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Login";
             Text = "Form1";
             Load += Login_Load;

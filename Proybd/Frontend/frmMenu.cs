@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proybd.Backend;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,9 +11,14 @@ using System.Windows.Forms;
 
 namespace Proybd.Frontend
 {
-    public partial class Menu : Form
+    public partial class frmMenu : Form
     {
-        public Menu()
+        public frmMenu()
+        {
+            InitializeComponent();
+        }
+
+        public frmMenu(clsConsultaUsuarios usuario)
         {
             InitializeComponent();
         }
