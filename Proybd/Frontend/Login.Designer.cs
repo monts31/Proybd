@@ -94,7 +94,7 @@
             // 
             btnIngresar.BackColor = Color.Tan;
             btnIngresar.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnIngresar.Location = new Point(557, 417);
+            btnIngresar.Location = new Point(548, 417);
             btnIngresar.Name = "btnIngresar";
             btnIngresar.Size = new Size(164, 43);
             btnIngresar.TabIndex = 3;
