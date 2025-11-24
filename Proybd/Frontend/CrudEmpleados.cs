@@ -165,6 +165,35 @@ namespace Proybd.Frontend
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(txtId_Empleado.Text))
+                {
+                    MessageBox.Show("Seleccione un empleado para modificar");
+                    return;
+                }
+                if (!txtTelefono.Text.All(char.IsDigit))
+                {
+                    MessageBox.Show("El telefono solo debe contener numeros");
+                    return;
+                }
+                else if (txtTelefono.Text.Length != 10)
+                {
+                    MessageBox.Show("El telefono debe contener 10 digitos");
+                    return;
+                }
+                cargarDatosEmpleado();
+                if (mEmpleadoConsultas.actualizarEmpleado(mEmpleado))
+                {
+                    MessageBox.Show("Empleado Modificado");
+                    cargarEmpleados();
+                    LimpiarCampos();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al modificar empleado: " + ex.Message);
+            }
 
         }
 

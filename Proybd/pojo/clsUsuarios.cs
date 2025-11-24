@@ -8,7 +8,7 @@ namespace Proybd.pojo
 {
     public class clsUsuarios
     {
-        private int id_Usuario;
+        public int id_Usuario;
         private string usuario;
         private string contraseña;
         private string correo;

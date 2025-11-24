@@ -1,4 +1,5 @@
-﻿using Proybd.pojo;
+﻿using MySql.Data.MySqlClient;
+using Proybd.pojo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,14 +31,44 @@ namespace Proybd.Backend
                     clsOrdenes venta = new clsOrdenes();
 
                     venta.id_Orden = reader.GetInt32("id_Orden");
-                    venta.id_Producto = reader.GetInt32("id_Producto");
-                    venta.precio = reader.GetFloat("precio");
-                    venta.cantidad = reader.GetInt32("cantidad");
+                    venta.id_Usuario = reader.GetInt32("id_Usuario");
+                    venta.fecha = reader.GetDateTime("fecha");
+
 
                     ventas.Add(venta);
                 }
             }
             return ventas;
+        }
+
+        public int ventaRealizada(clsOrdenes orden)
+        {
+            int idOrden = 0;
+
+            try
+            {
+               
+                string query = "insert into Ordenes (id_usuario, fecha)VALUES (@usuario, @fecha)";
+
+                MySqlCommand comando = new MySqlCommand(query, conexionMSQL.GetConnection());
+
+                comando.Parameters.AddWithValue("@usuario", ClsSesion.UsuarioActual.Id_Usuario);
+                comando.Parameters.AddWithValue("@fecha", orden.fecha);
+                comando.ExecuteNonQuery();
+
+                idOrden = Convert.ToInt32(comando.ExecuteScalar());
+
+                if (idOrden > 0)
+                {
+                    MessageBox.Show("Orden registrada correctamente. ID: " + idOrden);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al registrar orden: " + ex.Message);
+            }
+
+            return idOrden;
         }
 
         public List<clsDetallesOrden> obtenerReporte(int id_Orden)
@@ -57,7 +88,7 @@ namespace Proybd.Backend
                         clsDetallesOrden orden = new clsDetallesOrden();
 
                         orden.id_Orden = reader.GetInt32("id_Orden");
-                        orden.id_Producto = reader.GetInt32("id_Producto");
+                        //orden.id_Producto = reader.GetInt32("id_Producto");
                         orden.precio = reader.GetFloat("precio");
                         orden.cantidad = reader.GetInt32("cantidad");
                         orden.monto = reader.GetFloat("precio") * reader.GetInt32("cantidad");

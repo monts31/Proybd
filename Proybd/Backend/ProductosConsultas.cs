@@ -60,7 +60,8 @@ namespace Proybd.Backend
 
         public bool eliminarPRoducto(int id_Producto)
         {
-            string DELETE = "delete from Prodctos where id_Producto = @id_Producto;";
+            string DELETE = "delete from Produ" +
+                "ctos where id_Producto = @id_Producto;";
 
             MySqlCommand mcCommand = new MySqlCommand(DELETE, conexionMSQL.GetConnection());
 

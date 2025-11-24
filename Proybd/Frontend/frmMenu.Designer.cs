@@ -43,6 +43,10 @@
             pic6 = new PictureBox();
             pic5 = new PictureBox();
             dataGridView1 = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
             btnRechazar = new Button();
             btnConfirmar = new Button();
             btnIZQ = new Button();
@@ -114,6 +118,7 @@
             pic1.SizeMode = PictureBoxSizeMode.Zoom;
             pic1.TabIndex = 5;
             pic1.TabStop = false;
+            pic1.Click += pic1_Click;
             // 
             // pic2
             // 
@@ -124,6 +129,7 @@
             pic2.SizeMode = PictureBoxSizeMode.Zoom;
             pic2.TabIndex = 6;
             pic2.TabStop = false;
+            pic2.Click += pic2_Click;
             // 
             // pic4
             // 
@@ -134,6 +140,7 @@
             pic4.SizeMode = PictureBoxSizeMode.Zoom;
             pic4.TabIndex = 8;
             pic4.TabStop = false;
+            pic4.Click += pic4_Click;
             // 
             // pic3
             // 
@@ -155,6 +162,7 @@
             pic8.SizeMode = PictureBoxSizeMode.Zoom;
             pic8.TabIndex = 12;
             pic8.TabStop = false;
+            pic8.Click += pic8_Click;
             // 
             // pic7
             // 
@@ -165,6 +173,7 @@
             pic7.SizeMode = PictureBoxSizeMode.Zoom;
             pic7.TabIndex = 11;
             pic7.TabStop = false;
+            pic7.Click += pic7_Click;
             // 
             // pic6
             // 
@@ -175,6 +184,7 @@
             pic6.SizeMode = PictureBoxSizeMode.Zoom;
             pic6.TabIndex = 10;
             pic6.TabStop = false;
+            pic6.Click += pic6_Click;
             // 
             // pic5
             // 
@@ -185,16 +195,40 @@
             pic5.SizeMode = PictureBoxSizeMode.Zoom;
             pic5.TabIndex = 9;
             pic5.TabStop = false;
+            pic5.Click += pic5_Click;
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = Color.PapayaWhip;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4 });
             dataGridView1.Location = new Point(55, 494);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(1086, 151);
             dataGridView1.TabIndex = 13;
+            dataGridView1.Click += dataGridView1_Click;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Id del producto";
+            Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Producto";
+            Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Cantidad";
+            Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "Total";
+            Column4.Name = "Column4";
             // 
             // btnRechazar
             // 
@@ -218,6 +252,7 @@
             btnConfirmar.TabIndex = 15;
             btnConfirmar.Text = "Confirmar venta";
             btnConfirmar.UseVisualStyleBackColor = false;
+            btnConfirmar.Click += btnConfirmar_Click;
             // 
             // btnIZQ
             // 
@@ -325,5 +360,9 @@
         private Button btnDer;
         private Button btnProducts;
         private Button btnInicio;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
     }
 }

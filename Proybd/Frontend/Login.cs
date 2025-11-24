@@ -6,6 +6,8 @@ namespace Proybd
 {
     public partial class Login : Form
     {
+        public static string Usuario ="";
+        public static int idg = 0;
         public Login()
         {
             InitializeComponent();
@@ -21,6 +23,8 @@ namespace Proybd
             clsUsuarios usuario = new clsUsuarios();
             usuario.Usuario = txtUsuario.Text.Trim();
             usuario.Contraseña = txtPassword.Text.Trim();
+            Usuario = txtUsuario.Text.Trim();
+            idg = usuario.Id_Usuario;
 
             // Validaciones
             if (string.IsNullOrWhiteSpace(txtUsuario.Text) || string.IsNullOrWhiteSpace(txtPassword.Text))
@@ -37,10 +41,13 @@ namespace Proybd
 
                 if (revisar == true)
                 {
+                    
                     MessageBox.Show("Usuario encontrado", "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    frmMenu menu = new frmMenu(usuario);
+                    frmInicio inicio = new frmInicio();
+                    ClsSesion.UsuarioActual = usuario;
+                    ClsSesion.id = usuario.Id_Usuario;
                     this.Hide();
-                    menu.ShowDialog();
+                    inicio.ShowDialog();
                     this.Close();
                 }
                 else

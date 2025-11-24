@@ -3,6 +3,7 @@ using Proybd.pojo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -70,13 +71,13 @@ namespace Proybd.Backend
             clsEmpleados empleado = null;
             try
             {
-                string strSQL = "select * from Empleados e join usuarios u on e.id_empleado = u.id_empleado where u.usuario = @usuario and u.password = SHA1(@password)";
+                string strSQL = "select * from Empleados where id_empleado = @id";
 
                 MySqlCommand command = new MySqlCommand(strSQL, conn);
-                command.Parameters.AddWithValue("@usuario", usuario.Usuario);
-                command.Parameters.AddWithValue("@password", usuario.Contraseña);
 
-                
+                command.Parameters.AddWithValue("@id", usuario.Id_Empleado);
+
+
                 using (MySqlDataReader reader = command.ExecuteReader())
                 {
                     if (reader.Read())
